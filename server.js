@@ -178,9 +178,15 @@ BasicAuthRoutes.get('/getJson', (req, res)=>{
 });
 
 BasicAuthRoutes.get('/idVerify', (req, res)=>{
-    console.log(JSON.stringify(req.query));
     console.log(JSON.stringify(req.headers));
-    res.status(200).json({"DigitalIDStatus":"999999:active,999999:barred","DigitalIDCount": "9"});
+    console.log(JSON.stringify(req.body));
+    xml_res = {
+        "verifyId":"54321"
+    }
+
+    res.set('Content-Type', 'application/json');
+    res.send(xml_res);
+    res.status(200).send();
 });
 
 BasicAuthRoutes.post('/postJson', (req, res)=>{
