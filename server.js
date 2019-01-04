@@ -134,6 +134,12 @@ app.get('/getXml', (req, res)=>{
     res.status(200).send();
 });
 
+app.get('/id1Verify', (req, res)=>{
+    console.log(JSON.stringify(req.query));
+    console.log(JSON.stringify(req.headers));
+    res.status(200).json({"DigitalIDStatus":"999999:active,999999:barred","DigitalIDCount": "9"});
+});
+
 BasicAuthRoutes.use((req, res, next)=>{
     const auth = {login: 'designer', password: 'designer@123'};
     // parse login and password from headers
@@ -152,7 +158,7 @@ BasicAuthRoutes.use((req, res, next)=>{
     next()
 });
 
-BasicAuthRoutes.get('/getXml', (req, res)=>{
+BasicAuthRoutes.get('/getXmlSecure', (req, res)=>{
     console.log(JSON.stringify(req.headers));
     console.log(JSON.stringify(req.body));
     xml_res = '<accountLookupResults> \
@@ -171,23 +177,19 @@ BasicAuthRoutes.get('/getXml', (req, res)=>{
     res.status(200).send();
 });
 
+
 BasicAuthRoutes.get('/getJson', (req, res)=>{
     console.log(JSON.stringify(req.query));
     console.log(JSON.stringify(req.headers));
     res.status(200).json({"DigitalIDStatus":"999999:active,999999:barred","DigitalIDCount": "9"});
 });
 
-BasicAuthRoutes.get('/idVerify', (req, res)=>{
+BasicAuthRoutes.get('/id2Verify', (req, res)=>{
+    console.log(JSON.stringify(req.query));
     console.log(JSON.stringify(req.headers));
-    console.log(JSON.stringify(req.body));
-    xml_res = {
-        "verifyId":"54321"
-    }
-
-    res.set('Content-Type', 'application/json');
-    res.send(xml_res);
-    res.status(200).send();
+    res.status(200).json({"DigitalIDStatus":"999999:active,999999:barred","DigitalIDCount": "9"});
 });
+
 
 BasicAuthRoutes.post('/postJson', (req, res)=>{
     console.log(JSON.stringify(req.query));
