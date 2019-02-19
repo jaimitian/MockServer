@@ -137,7 +137,7 @@ app.get('/getXml', (req, res)=>{
 app.get('/id1Verify', (req, res)=>{
     console.log(JSON.stringify(req.query));
     console.log(JSON.stringify(req.headers));
-    res.status(200).json({"verifyId":"54321"});
+    res.status(200).json({"verifyId":"54321", "sessionId":"1qaz2wsx3edc4rfv5tgb"});
 });
 
 BasicAuthRoutes.use((req, res, next)=>{
@@ -187,7 +187,7 @@ BasicAuthRoutes.get('/getJson', (req, res)=>{
 BasicAuthRoutes.get('/id2Verify', (req, res)=>{
     console.log(JSON.stringify(req.query));
     console.log(JSON.stringify(req.headers));
-    res.status(200).json({"verifyId":"54321"});
+    res.status(200).json({"verifyId":"54321", "sessionId":"0okm9ijn8uhb7ygv6tfc"});
 });
 
 
